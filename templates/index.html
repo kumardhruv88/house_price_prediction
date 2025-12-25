@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <h1>House Price Prediction</h1>
+            <p>Enter the details below to estimate the value.</p>
+
+            <form id="predictionForm">
+                <div class="input-group">
+                    <label>Square Footage</label>
+                    <input type="number" name="Square_Footage" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Bedrooms</label>
+                        <input type="number" name="Num_Bedrooms" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Bathrooms</label>
+                        <input type="number" name="Num_Bathrooms" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Year Built</label>
+                        <input type="number" name="Year_Built" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Lot Size (Acres)</label>
+                        <input type="number" step="0.01" name="Lot_Size" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Garage Size (Cars)</label>
+                        <input type="number" name="Garage_Size" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Neighborhood Quality (1-10)</label>
+                        <input type="number" name="Neighborhood_Quality" min="1" max="10" required>
+                    </div>
+                </div>
+
+                <button type="submit">Predict Price</button>
+            </form>
+
+            <div id="result" class="result-container hidden">
+                <h2>Estimated Price:</h2>
+                <div id="priceValue" class="price"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
